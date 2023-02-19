@@ -20,5 +20,10 @@ In the logs, several entries like this appear:
 [W 2023-02-18 20:37:42.380 ServerApp] Blocking Cross Origin WebSocket Attempt.  Origin: https://rwcitek-turbo-space-pancake-96rvgw5pxf9rpv-8888.preview.app.github.dev, Host: localhost
 ```
 
-
+I'm not exactly sure what my questions is.  It could be any one of the following:
+- What do I need to change so that I see a result of "4" in the output cell?
+- What do I need to change so that I no longer see these error messages?
+- How do I allow localhost access?
+- How do I allow rwcitek-... access?
+- or is it something else?
 
