@@ -1,8 +1,8 @@
 # bash scripting
 
-Trying out running a Docker container of Jupyter Lab in Code Spaces.  I'm running into a what looks like a CORS error.
+I am trying out running a Docker container of Jupyter Lab in Code Spaces.  I'm running into a what looks like a CORS error.
 
-In a terminal, run this command:
+Open this file in a Code Space.  Then, in the terminal, run this command:
 ```bash
 docker container run -it -p 8888:8888 jupyter/base-notebook
 ```
