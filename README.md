@@ -13,7 +13,7 @@ This will start a Docker container running a Jupyter Lab session on port 8888, w
 http://127.0.0.1:8888/lab?token=b8b0a62e4265d5a89e0aa91adb8248d5410fbe55620c3266
 ```
 
-Unfortunately, when I open a Python notebook and enter a command in a code cell, e.g. "2+2" and press run, the cell never finishes running, i.e. the [*] next to the cell never turns to a number and there is no output cell.
+I can launch a Python notebook and enter a command in a code cell, e.g. "2+2" and press run.  However, the cell never finishes running, i.e. the [\*] next to the cell never turns to a number and there is no output cell.
 
 In the logs, several entries like this appear:
 ```
@@ -22,7 +22,7 @@ In the logs, several entries like this appear:
 
 I'm not exactly sure what my questions is.  It could be any one of the following:
 - What do I need to change so that I see a result of "4" in the output cell?
-- What do I need to change so that I no longer see these error messages?
+- What do I need to change so that I no longer see these error messages in the logs?
 - How do I allow localhost access?
 - How do I allow rwcitek-... access?
 - or is it something else?
