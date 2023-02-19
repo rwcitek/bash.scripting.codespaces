@@ -13,9 +13,9 @@ This will start a Docker container running a Jupyter Lab session on port 8888, w
 http://127.0.0.1:8888/lab?token=b8b0a62e4265d5a89e0aa91adb8248d5410fbe55620c3266
 ```
 
-Unfortunately, if click open a Python notebook and enter a command in a cell, e.g. type "2+2" and press run, the cell never finishes running, i.e. the * next to the cell never turns to a number and there is no output cell.
+Unfortunately, when I open a Python notebook and enter a command in a code cell, e.g. "2+2" and press run, the cell never finishes running, i.e. the [*] next to the cell never turns to a number and there is no output cell.
 
-In the logs, this appears:
+In the logs, several entries like this appear:
 ```
 [W 2023-02-18 20:37:42.380 ServerApp] Blocking Cross Origin WebSocket Attempt.  Origin: https://rwcitek-turbo-space-pancake-96rvgw5pxf9rpv-8888.preview.app.github.dev, Host: localhost
 ```
