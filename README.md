@@ -1,4 +1,4 @@
-# bash scripting
+# Running a Docker service in Code Spaces
 
 I am trying out running a Docker container of Jupyter Lab in Code Spaces.  I'm running into a what looks like a CORS error.
 
