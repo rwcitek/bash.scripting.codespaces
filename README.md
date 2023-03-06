@@ -10,6 +10,7 @@ docker container run \
   -p 8888:8888 \
   -v "${SHARED}":/home/jovyan/shared ${DooD} \
   -w /home/jovyan/shared \
+  --name jlab \
   jupyter/base-notebook \
     start-notebook.sh \
     --NotebookApp.allow_origin_pat='.*.preview.app.github.dev'
