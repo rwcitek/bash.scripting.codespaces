@@ -18,7 +18,7 @@ docker container run \
 }
 ```
 
-This will start a Docker container running a Jupyter Lab session on port 8888, which is being tunneled to your local system.  If you ctrl+click on the link with the token shown in the terminal window, Code Spaces will open a new tab with and display the Jupyter Lab environment.  For example:
+This will start a Docker container running a Jupyter Lab session on port 8888, which is being tunneled to your local system.  If you ctrl+click on the link with the token shown in the terminal window, Code Spaces will open a new tab and display the Jupyter Lab environment.  For example:
 
 ```
 http://127.0.0.1:8888/lab?token=b8b0a62e4265d5a89e0aa91adb8248d5410fbe55620c3266
