@@ -114,19 +114,22 @@ rwcitek/titanic   v001      9ae8050b8d1b   8 minutes ago   340MB
 ## Run an instance
 
 ```
-docker container run --rm rwcitek/titanic:v001 cat /etc/os-release
+docker container run --rm rwcitek/titanic:v001 bash -c 'csvcut -c 1-5 titanic.csv | head | csvlook '
 ```
 ```
-PRETTY_NAME="Ubuntu 22.04.2 LTS"
-NAME="Ubuntu"
-VERSION_ID="22.04"
-VERSION="22.04.2 LTS (Jammy Jellyfish)"
-VERSION_CODENAME=jammy
-ID=ubuntu
-ID_LIKE=debian
-HOME_URL="https://www.ubuntu.com/"
-SUPPORT_URL="https://help.ubuntu.com/"
-BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=jammy
+| PassengerId | Survived | Pclass | Name                                                | Sex    |
+| ----------- | -------- | ------ | --------------------------------------------------- | ------ |
+|           1 |    False |      3 | Braund, Mr. Owen Harris                             | male   |
+|           2 |     True |      1 | Cumings, Mrs. John Bradley (Florence Briggs Thayer) | female |
+|           3 |     True |      3 | Heikkinen, Miss. Laina                              | female |
+|           4 |     True |      1 | Futrelle, Mrs. Jacques Heath (Lily May Peel)        | female |
+|           5 |    False |      3 | Allen, Mr. William Henry                            | male   |
+|           6 |    False |      3 | Moran, Mr. James                                    | male   |
+|           7 |    False |      1 | McCarthy, Mr. Timothy J                             | male   |
+|           8 |    False |      3 | Palsson, Master. Gosta Leonard                      | male   |
+|           9 |     True |      3 | Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)   | female |
 ```
+
+
+
+
