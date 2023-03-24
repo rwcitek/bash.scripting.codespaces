@@ -1,6 +1,6 @@
 # Building a Titanic image
 
-## Pull an Image
+## Build an Image
 
 First, list all images.
 
