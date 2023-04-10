@@ -1,0 +1,23 @@
+
+# === Separate subscriber and publisher container, eclipse broker
+
+# Create a subscriber
+docker container run --rm --name mqtt_sub -i mosquitto /bin/bash << 'eof'
+  mosquitto_sub \
+    --host mqtt.eclipseprojects.io \
+    --topic CNMI/IoT |
+    tee /tmp/sub.log
+eof
+
+# Create a publisher
+docker container run --rm --name mqtt_pub -i mosquitto /bin/bash << 'eof'
+  sleep 3
+  for i in {1..10} ; do
+    mosquitto_pub \
+    --host mqtt.eclipseprojects.io \
+      --topic CNMI/IoT \
+      --message "$( date --iso=s ) MQTT Client"
+    sleep 1
+  done
+eof
+

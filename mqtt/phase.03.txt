@@ -1,0 +1,49 @@
+
+# === Subscriber, publisher, and broker in single container
+
+# remove any existing container
+docker container stop pbs ; docker container rm pbs
+
+
+# Create a container running in the background
+docker container run -d --name pbs mosquitto sleep inf
+
+
+# Configure the broker
+docker container exec -i pbs /bin/bash  << 'eof'
+  echo allow_anonymous true > /etc/mosquitto/conf.d/setup.conf
+  echo listener 1883 >> /etc/mosquitto/conf.d/setup.conf
+  mkdir /run/mosquitto/
+  chown mosquitto: /run/mosquitto/
+eof
+
+
+# Start a broker
+docker container exec pbs mosquitto -c /etc/mosquitto/mosquitto.conf -v -d
+
+
+# Create a subscriber
+docker container exec -i pbs /bin/bash << 'eof'
+  mosquitto_sub \
+    --host 127.0.0.1 \
+    --port 1883 \
+    --topic CNMI/IoT |
+    tee /tmp/sub.log
+eof
+
+
+# Create a publisher
+docker container exec -i pbs /bin/bash << 'eof'
+  sleep 3
+  for i in {1..10} ; do
+    mosquitto_pub \
+      --host 127.0.0.1 \
+      --port 1883 \
+      --topic CNMI/IoT \
+      --message "$( date --iso=s ) MQTT Client"
+    sleep 1
+  done
+eof
+
+
+
