@@ -34,7 +34,7 @@ docker container run --rm --name mqtt_pub -i mosquitto \
 
 
 # start node-red
-docker container run -d --name node_red -p 1880:1880 node_red node-red
+docker container run -d --name node-red -p 1880:1880 node-red node-red
 
 mqtt_ip=$( docker container inspect mqtt_broker | jq -r .[0].NetworkSettings.Gateway )
 echo ${mqtt_ip}
