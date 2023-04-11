@@ -9,15 +9,6 @@ docker container stop mqtt_broker ; docker container rm mqtt_broker
 docker container run -d --name mqtt_broker -p 1883:1883 mosquitto sleep inf
 
 
-# Configure the broker
-docker container exec -i mqtt_broker /bin/bash  << 'eof'
-  echo allow_anonymous true > /etc/mosquitto/conf.d/setup.conf
-  echo listener 1883 >> /etc/mosquitto/conf.d/setup.conf
-  mkdir /run/mosquitto/
-  chown mosquitto: /run/mosquitto/
-eof
-
-
 # Start a broker
 docker container exec mqtt_broker mosquitto -c /etc/mosquitto/mosquitto.conf -v -d
 
@@ -26,7 +17,8 @@ mqtt_ip=$( docker container inspect mqtt_broker | jq -r .[0].NetworkSettings.Gat
 
 # Create a subscriber
 mqtt_ip=$( docker container inspect mqtt_broker | jq -r .[0].NetworkSettings.Gateway )
-docker container run --rm --name mqtt_sub -i mosquitto /bin/bash << eof
+docker container run -d --name mqtt_sub mosquitto sleep inf
+<< eof docker container exec -i mqtt_sub /bin/bash &
   mosquitto_sub \
     --host ${mqtt_ip} \
     --port 1883 \

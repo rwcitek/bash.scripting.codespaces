@@ -6,29 +6,17 @@
 # https://nodered.org/docs/getting-started/local
 
 # remove any existing container
-docker container run -d --name node_red -p 1880:1880 mosquitto sleep inf
+docker container stop node-red ; docker container rm node-red
 
 
-# install node-red
-docker container exec -i node_red /bin/bash  << 'eof'
-  apt-get update &&
-  apt-get install -y --no-install-recommends \
-    npm \
-    ;
-  npm install -g --unsafe-perm node-red
-eof
+# start node-red
+docker container run -d --name node-red -p 1880:1880 node-red node-red
 
-docker container commit mosquitto node_red
+echo http://localhost:1880
 
-docker container run -d --name node_red -p 1880:1880 node_red sleep inf
 
-docker container exec -it node_red /bin/bash
-
-node-red
-
-docker container run -d --name node_red -p 1880:1880 node_red node-red
-
-docker container exec -it node_red /bin/bash
+# interactive
+docker container exec -it node-red /bin/bash
 
 
 # https://www.linkedin.com/learning/search?keywords=node-red&u=104933730

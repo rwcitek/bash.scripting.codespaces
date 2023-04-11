@@ -1,0 +1,54 @@
+
+# === Dockerfile to build mosquitto-node-red image
+
+# Build an image
+( 
+cd /tmp/
+<<'eof' cat > Dockerfile
+FROM ubuntu:22.04
+
+ENV  DEBIAN_FRONTEND=noninteractive
+RUN  apt-get update && \
+     apt-get install -y --no-install-recommends \
+       mosquitto \
+       mosquitto-clients \
+       curl \
+       iputils-ping \
+       less \
+       net-tools \
+       npm \
+       telnet \
+       tree \
+       vim \
+       ;
+
+RUN  npm install -g --unsafe-perm node-red
+RUN  echo 'allow_anonymous true\nlistener 1883' > /etc/mosquitto/conf.d/setup.conf
+RUN  mkdir /run/mosquitto/
+RUN  chown mosquitto: /run/mosquitto/
+
+CMD ["/bin/bash"]
+COPY Dockerfile /
+
+eof
+
+docker image build --tag mqtt-red:latest .
+
+)
+
+mqtt-red.tag.push () {
+  tag=$(date +%s)
+  docker image tag mqtt-red:latest  rwcitek/mqtt-red:${tag}
+  docker image tag rwcitek/mqtt-red:${tag} rwcitek/mqtt-red:latest
+  docker image push rwcitek/mqtt-red:${tag} 
+  docker image push rwcitek/mqtt-red:latest 
+}
+
+mqtt-red.pull () {
+  docker image pull rwcitek/mqtt-red
+  docker image tag rwcitek/mqtt-red:latest mqtt-red
+  docker image tag rwcitek/mqtt-red:latest mosquitto
+}
+
+
+

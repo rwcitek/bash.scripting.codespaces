@@ -9,31 +9,19 @@ docker container stop pbs ; docker container rm pbs
 docker container run -d --name pbs mosquitto sleep inf
 
 
-# Configure the broker
-docker container exec -i pbs /bin/bash  << 'eof'
-  echo allow_anonymous true > /etc/mosquitto/conf.d/setup.conf
-  echo listener 1883 >> /etc/mosquitto/conf.d/setup.conf
-  mkdir /run/mosquitto/
-  chown mosquitto: /run/mosquitto/
-eof
-
-
-# Start a broker
-docker container exec pbs mosquitto -c /etc/mosquitto/mosquitto.conf -v -d
-
-
-# Create a subscriber
+# Run a broker, subscriber, and publisher
 docker container exec -i pbs /bin/bash << 'eof'
+  # Start a broker
+  mosquitto -c /etc/mosquitto/mosquitto.conf -v -d
+
+  # Create a subscriber
   mosquitto_sub \
     --host 127.0.0.1 \
     --port 1883 \
     --topic CNMI/IoT |
-    tee /tmp/sub.log
-eof
+    tee /tmp/sub.log &
 
-
-# Create a publisher
-docker container exec -i pbs /bin/bash << 'eof'
+  # Create a publisher
   sleep 3
   for i in {1..10} ; do
     mosquitto_pub \
