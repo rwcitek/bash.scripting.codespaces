@@ -3,6 +3,7 @@
 
 # remove any existing container
 docker container stop mqtt_broker ; docker container rm mqtt_broker
+docker container stop node_red ; docker container rm node_red
 
 
 # Create a container running in the background
@@ -30,4 +31,14 @@ docker container run --rm --name mqtt_pub -i mosquitto \
       --port 1883 \
       --topic CNMI/IoT \
       --message "Hello World"
+
+
+# start node-red
+docker container run -d --name node_red -p 1880:1880 node_red node-red
+
+mqtt_ip=$( docker container inspect mqtt_broker | jq -r .[0].NetworkSettings.Gateway )
+echo ${mqtt_ip}
+echo http://localhost:1880
+
+
 
