@@ -27,7 +27,7 @@ docker container list -a
 ## Run a subscriber in a second terminal
 ```
 mqtt_ip=$( docker container inspect mqtt_broker | jq -r .[0].NetworkSettings.Gateway )
-docker container run --rm --name mqtt_sub mqtt-red \
+docker container run --rm mqtt-red \
   mosquitto_sub \
     --host ${mqtt_ip} \
     --port 1883 \
