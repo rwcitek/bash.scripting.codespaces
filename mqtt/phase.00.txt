@@ -14,6 +14,7 @@ RUN  apt-get update && \
        mosquitto-clients \
        curl \
        iputils-ping \
+       jq \
        less \
        net-tools \
        npm \
