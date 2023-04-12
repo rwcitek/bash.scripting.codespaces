@@ -1,29 +1,31 @@
 
 # Separate subscriber, publisher, and broker containers
 
+## Pull and tag images
+```
+docker image pull rwcitek/mqtt-red
+docker image tag rwcitek/mqtt-red:latest mqtt-red
+docker image tag rwcitek/mqtt-red:latest mosquitto
+```
+
+
 ## Remove any existing container
 ```
 docker container stop mqtt_broker ; docker container rm mqtt_broker
-docker container stop node_red ; docker container rm node_red
+docker container stop node-red ; docker container rm node-red
 ```
 
 
-# Create a container running in the background
+## Run a broker in one terminal
 ```
-docker container run -d --name mqtt_broker -p 1883:1883 mosquitto sleep inf
-```
-
-
-# Run a broker in one terminal
-```
-docker container exec mqtt_broker mosquitto -c /etc/mosquitto/mosquitto.conf -v -d
+docker container run -d --name mqtt_broker mqtt-red mosquitto -c /etc/mosquitto/mosquitto.conf -v
 ```
 
 
-# Run a subscriber in a second terminal
+## Run a subscriber in a second terminal
 ```
 mqtt_ip=$( docker container inspect mqtt_broker | jq -r .[0].NetworkSettings.Gateway )
-docker container run --rm --name mqtt_sub mosquitto \
+docker container run --rm --name mqtt_sub mqtt-red \
   mosquitto_sub \
     --host ${mqtt_ip} \
     --port 1883 \
@@ -31,10 +33,10 @@ docker container run --rm --name mqtt_sub mosquitto \
 ```
 
 
-# Run a publisher in a third terminal
+## Run a publisher in a third terminal
 ```
 mqtt_ip=$( docker container inspect mqtt_broker | jq -r .[0].NetworkSettings.Gateway )
-docker container run --rm --name mqtt_pub -i mosquitto \
+docker container run --rm --name mqtt_pub -i mqtt-red \
     mosquitto_pub \
       --host ${mqtt_ip} \
       --port 1883 \
@@ -43,7 +45,7 @@ docker container run --rm --name mqtt_pub -i mosquitto \
 ```
 
 
-# Run node-RED in a fourth terminal
+## Run node-RED in a fourth terminal
 ```
 docker container run -d --name node-red -p 1880:1880 mqtt-red node-red
 
