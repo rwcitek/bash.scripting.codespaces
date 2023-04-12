@@ -5,14 +5,15 @@
 ```
 docker image pull rwcitek/mqtt-red
 docker image tag rwcitek/mqtt-red:latest mqtt-red
-docker image tag rwcitek/mqtt-red:latest mosquitto
 ```
 
 
 ## Remove any existing container
 ```
+docker container stop mqtt_sub
 docker container stop mqtt_broker ; docker container rm mqtt_broker
 docker container stop node-red ; docker container rm node-red
+docker container list -a
 ```
 
 
