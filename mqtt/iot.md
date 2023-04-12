@@ -18,7 +18,8 @@ docker container stop node-red ; docker container rm node-red
 
 ## Run a broker in one terminal
 ```
-docker container run -d --name mqtt_broker mqtt-red mosquitto -c /etc/mosquitto/mosquitto.conf -v
+docker container run -d --name mqtt_broker -p 1883:1883 mqtt-red mosquitto -c /etc/mosquitto/mosquitto.conf -v
+docker container list -a
 ```
 
 
@@ -48,16 +49,19 @@ docker container run --rm --name mqtt_pub -i mqtt-red \
 ## Run node-RED in a fourth terminal
 ```
 docker container run -d --name node-red -p 1880:1880 mqtt-red node-red
+docker container list -a
+```
 
+Display info for node-RED
+```
 mqtt_ip=$( docker container inspect mqtt_broker | jq -r .[0].NetworkSettings.Gateway )
 
 node-red.info() {
   echo Node-RED URL: http://localhost:1880
-  echo Broker IP: ${mqtt_ip}
+  echo MQTT broker IP: ${mqtt_ip}
 }
 
 node-red.info
-
 ```
 
 
