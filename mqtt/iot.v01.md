@@ -1,4 +1,4 @@
-# All-in-one subscriber, publisher, broker, Node-RED container
+# All-in-one broker, subscriber, publisher, Node-RED container
 
 This version is the most similar to what Dr. Brian Rashap does for his IoT class.
 What is different is that these commands all run using Docker.
