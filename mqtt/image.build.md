@@ -4,22 +4,21 @@
 ## Build an image
 Create the Dockerfile
 ```
-( 
-cd /tmp/
 <<'eof' cat > Dockerfile
 FROM ubuntu:22.04
 
+SHELL ["/bin/bash", "-c"]
 ENV  DEBIAN_FRONTEND=noninteractive
 
 # Install software packages
 RUN  apt-get update && \
      apt-get install -y --no-install-recommends \
-       mosquitto \
-       mosquitto-clients \
        curl \
        iputils-ping \
        jq \
        less \
+       mosquitto \
+       mosquitto-clients \
        net-tools \
        npm \
        telnet \
@@ -40,7 +39,6 @@ CMD ["/bin/bash"]
 COPY Dockerfile /
 
 eof
-)
 ```
 
 Build the Docker image
