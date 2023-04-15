@@ -47,6 +47,7 @@ docker container exec mqtt-red \
 
 
 ## Run a publisher in a third terminal
+Actually, you can run this in any other terminal other than than one with the subscriber ( i.e. the second terminal )
 ```
 docker container exec mqtt-red \
   mosquitto_pub \
@@ -58,14 +59,11 @@ docker container exec mqtt-red \
 
 
 ## Run node-RED in a fourth terminal
+Actually, you can run this in any other terminal other than than one with the subscriber ( i.e. the second terminal )
 ```
 docker container exec -d mqtt-red \
   node-red ; sleep 2
 docker container exec mqtt-red netstat -plnt
-```
-
-Display info for node-RED
-```
 echo -e "\n\nNode-RED URL:    http://localhost:1880\n\n"
 ```
 
