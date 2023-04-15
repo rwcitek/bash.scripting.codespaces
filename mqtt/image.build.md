@@ -30,7 +30,7 @@ RUN  apt-get update && \
 RUN  npm install -g --unsafe-perm node-red
 
 # Configure mqtt broker
-RUN  echo 'allow_anonymous true\nlistener 1883' > /etc/mosquitto/conf.d/setup.conf
+RUN  echo -e 'allow_anonymous true\nlistener 1883' > /etc/mosquitto/conf.d/setup.conf
 RUN  mkdir /run/mosquitto/
 RUN  chown mosquitto: /run/mosquitto/
 
