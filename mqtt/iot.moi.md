@@ -1,6 +1,6 @@
 # Most-in-one Node-RED, subscriber, publisher container
 
-This version is similar to the previous version,
+This version is similar to the original version,
 but differs in that it uses the public broker at mqtt.eclipseprojects.io.
 
 These commmands have been tested and verify to work with Docker on a Chromebook and on GitHub's CodeSpaces.
