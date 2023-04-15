@@ -1,4 +1,4 @@
-# Most-in-one subscriber, publisher, Node-RED container
+# Most-in-one Node-RED, subscriber, publisher container
 
 This version is similar to the previous version,
 but differs in that it uses the public broker at mqtt.eclipseprojects.io.
@@ -28,6 +28,15 @@ docker container list -a
 ```
 
 
+## Run node-RED
+```
+docker container exec -d mqtt-red \
+  node-red ; sleep 2
+docker container exec mqtt-red netstat -plnt
+echo -e "\n\nNode-RED URL:    http://localhost:1880\n\n"
+```
+
+
 ## Run a subscriber
 ```
 docker container exec mqtt-red \
@@ -39,7 +48,6 @@ docker container exec mqtt-red \
 
 
 ## Run a publisher in a second terminal
-Actually, you can run this in any terminal other than than one with the subscriber
 ```
 docker container exec mqtt-red \
   mosquitto_pub \
@@ -50,13 +58,5 @@ docker container exec mqtt-red \
 ```
 
 
-## Run node-RED in a third terminal
-Actually, you can run this in any terminal other than than one with the subscriber
-```
-docker container exec -d mqtt-red \
-  node-red ; sleep 2
-docker container exec mqtt-red netstat -plnt
-echo -e "\n\nNode-RED URL:    http://localhost:1880\n\n"
-```
 
 
