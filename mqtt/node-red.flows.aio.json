@@ -1,0 +1,273 @@
+[
+    {
+        "id": "e1163db7c4c22860",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7f9432339f395aaf",
+        "type": "inject",
+        "z": "e1163db7c4c22860",
+        "name": "MyFavNumber",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "42",
+        "payloadType": "num",
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "1e4d545e3e98743c",
+                "9091919b666a9d08",
+                "4233bb173d079834"
+            ]
+        ]
+    },
+    {
+        "id": "1e4d545e3e98743c",
+        "type": "debug",
+        "z": "e1163db7c4c22860",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8e7e52b7bc98c2a6",
+        "type": "inject",
+        "z": "e1163db7c4c22860",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 340,
+        "wires": [
+            [
+                "1e4d545e3e98743c"
+            ]
+        ]
+    },
+    {
+        "id": "a51676755db0c414",
+        "type": "inject",
+        "z": "e1163db7c4c22860",
+        "name": "GoesToEleven",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "11",
+        "payloadType": "num",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "4233bb173d079834",
+                "9091919b666a9d08"
+            ]
+        ]
+    },
+    {
+        "id": "f747eba101559532",
+        "type": "mqtt in",
+        "z": "e1163db7c4c22860",
+        "name": "",
+        "topic": "feeds/test",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f7fb738d5aee12fe",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 60,
+        "wires": [
+            [
+                "10257fb62e905941",
+                "4233bb173d079834",
+                "9091919b666a9d08"
+            ]
+        ]
+    },
+    {
+        "id": "10257fb62e905941",
+        "type": "debug",
+        "z": "e1163db7c4c22860",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9091919b666a9d08",
+        "type": "ui_chart",
+        "z": "e1163db7c4c22860",
+        "name": "This is a chart",
+        "group": "4fc859e4e9516fb8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 520,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4233bb173d079834",
+        "type": "ui_gauge",
+        "z": "e1163db7c4c22860",
+        "name": "This is a gauge",
+        "group": "4fc859e4e9516fb8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "50",
+        "diff": false,
+        "className": "",
+        "x": 520,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f7fb738d5aee12fe",
+        "type": "mqtt-broker",
+        "name": "LocalMQTT",
+        "broker": "127.0.01",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4fc859e4e9516fb8",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "b01301f09ac7abce",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b01301f09ac7abce",
+        "type": "ui_tab",
+        "name": "DataScience",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
