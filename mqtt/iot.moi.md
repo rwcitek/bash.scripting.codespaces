@@ -29,6 +29,12 @@ docker container list -a
 
 
 ## Run node-RED
+Pre-install the Node-RED dashboard ( optional )
+```
+docker container exec mqtt-red \
+  npm install -g --unsafe-perm node-red-dashboard
+```
+
 ```
 docker container exec -d mqtt-red \
   node-red ; sleep 2
