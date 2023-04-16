@@ -8,11 +8,11 @@ Set up MQTT in Docker. The final goal is to have five instances:
 - Node-RED
 - Mongodb 
 
-## Phase IoT: all-in-one instance
+## [Phase IoT: all-in-one instance]( https://github.com/rwcitek/bash.scripting/blob/main/mqtt/iot.md )
 
 - broker, subscriber, publisher, Node-RED
 
-## Phase MIO: most-in-one
+## [Phase MIO: most-in-one]( https://github.com/rwcitek/bash.scripting/blob/main/mqtt/iot.moi.md )
 
 - public broker
 - subscriber, publisher, Node-RED
