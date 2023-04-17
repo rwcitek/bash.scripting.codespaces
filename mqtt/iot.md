@@ -4,7 +4,10 @@ This version is the most similar to what Dr. Brian Rashap does for his IoT class
 What is different is that these commands all run using Docker.
 The original commands were meant to all run on the same system.
 Therefore, these commands all use the same Docker container.
-These commmands have been tested and verify to work with Docker on a Chromebook and on GitHub's CodeSpaces.
+These commmands have been tested and verify to work with Docker
+on a [Chromebook]( https://gist.github.com/rwcitek/824d4752b417b6d2cd5c931af3db61a6 ),
+on [Windows]( https://gist.github.com/rwcitek/f2b6fb5baddf16f6dc1f277a5d9f8366 ), 
+and on GitHub's CodeSpaces.
 
 
 ## Pull and tag images
