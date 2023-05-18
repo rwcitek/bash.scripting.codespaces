@@ -3,6 +3,8 @@
 This version is similar to the original version,
 but differs in that it uses the public broker at \[[mqtt.eclipseprojects.io]( https://mqtt.eclipseprojects.io/ )\].
 
+For more info on [MQTT]( https://en.wikipedia.org/wiki/MQTT )
+
 These commmands have been tested and verify to work with Docker on a Chromebook and on GitHub's CodeSpaces.
 
 
@@ -42,6 +44,7 @@ docker container exec mqtt-red netstat -plnt
 echo -e "\n\nNode-RED URL:    http://localhost:1880\n\n"
 ```
 
+Open the link in a browser.
 
 ## Run a subscriber
 ```
