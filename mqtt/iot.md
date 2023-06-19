@@ -73,7 +73,7 @@ docker container exec mqtt-red \
 ```
 docker container exec -d mqtt-red \
   node-red ; sleep 2
-docker container exec mqtt-red netstat -plnt
+docker container exec mqtt-red netstat -plnt ; sleep 2
 echo -e "\n\nNode-RED URL:    http://localhost:1880\n\n"
 ```
 
