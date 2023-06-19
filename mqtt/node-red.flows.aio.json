@@ -121,7 +121,7 @@
         "topic": "feeds/test",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "f7fb738d5aee12fe",
+        "broker": "224294cfd9acde9e",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -225,10 +225,10 @@
         "wires": []
     },
     {
-        "id": "f7fb738d5aee12fe",
+        "id": "224294cfd9acde9e",
         "type": "mqtt-broker",
-        "name": "LocalMQTT",
-        "broker": "127.0.01",
+        "name": "Eclipse",
+        "broker": "mqtt.eclipseprojects.io",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
