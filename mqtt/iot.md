@@ -63,6 +63,13 @@ docker container exec mqtt-red \
 
 ## Run node-RED in a fourth terminal
 Actually, you can run this in any other terminal other than than one with the subscriber ( i.e. the second terminal )
+
+Pre-install the Node-RED dashboard ( optional )
+```
+docker container exec mqtt-red \
+  npm install -g --unsafe-perm node-red-dashboard
+```
+
 ```
 docker container exec -d mqtt-red \
   node-red ; sleep 2
