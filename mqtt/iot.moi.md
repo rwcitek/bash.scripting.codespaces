@@ -57,7 +57,7 @@ docker container exec mqtt-red \
 
 
 ## Run a publisher in a second terminal
-```
+```bash
 docker container exec mqtt-red \
   mosquitto_pub \
     --host mqtt.eclipseprojects.io \
@@ -65,6 +65,29 @@ docker container exec mqtt-red \
     --topic feeds/test \
     --message "Hello World"
 ```
+
+---
+# Advanced usage
+
+## Update software packages in container
+
+If you do this, you will probably want to do this before running Node-RED or anything else in the container. 
+```bash
+docker container exec -i mqtt-red /bin/bash <<'eof'
+  export DEBIAN_FRONTEND=noninteractive
+  apt-get -y autoclean
+  apt-get -y autoremove
+  apt-get update &&
+  apt-get -y dist-upgrade
+eof
+```
+
+## Enter into an interactive container
+```bash
+docker container exec -it mqtt-red /bin/bash
+```
+
+
 
 
 
