@@ -2,7 +2,7 @@
     {
         "id": "e1163db7c4c22860",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "CNM IoT",
         "disabled": false,
         "info": "",
         "env": []
@@ -228,7 +228,7 @@
     {
         "id": "f7fb738d5aee12fe",
         "type": "mqtt-broker",
-        "name": "LocalMQTT",
+        "name": "MQTT at Eclipse",
         "broker": "mqtt.eclipseprojects.io",
         "port": "1883",
         "clientid": "",
