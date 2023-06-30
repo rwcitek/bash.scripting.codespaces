@@ -1,5 +1,7 @@
 # MQTT in Docker
 
+![mqtt](https://www.researchgate.net/publication/347026819/figure/fig1/AS:970092774965248@1608299549057/MQTT-protocol-model.png)
+
 Set up MQTT in Docker. The final goal is to have five instances:
 
 - broker
