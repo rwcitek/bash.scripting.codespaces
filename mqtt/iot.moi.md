@@ -12,6 +12,7 @@ These commmands have been tested and verify to work with Docker on a Chromebook 
 ```
 docker image pull rwcitek/mqtt-red
 docker image tag rwcitek/mqtt-red:latest mqtt-red
+docker image list -a
 ```
 
 
