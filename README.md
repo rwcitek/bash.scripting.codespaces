@@ -8,11 +8,12 @@ Then, in the terminal, run this code block ( note the curly braces ):
 mkdir -p "${SHARED}"
 docker container run \
   --rm \
-  -it \
-  -p 8888:8888 \
-  -v "${SHARED}":/home/jovyan/shared \
-  -w /home/jovyan/shared \
-  --name jlab \
+  --interactive \
+  --tty \
+  --publish 8888:8888 \
+  --volume "${SHARED}":/home/jovyan/shared \
+  --workdir /home/jovyan/shared \
+  --name jupyter_lab \
   jupyter/base-notebook \
     start-notebook.sh \
     --NotebookApp.allow_origin_pat='.*.preview.app.github.dev'
@@ -37,11 +38,12 @@ Then, in the terminal, run this code block ( note the curly braces ):
 mkdir -p "${SHARED}"
 docker container run \
   --rm \
-  -it \
-  -p 8888:8888 \
-  -v "${SHARED}":/home/jovyan/shared \
-  -w /home/jovyan/shared \
-  --name jlab \
+  --interactive \
+  --tty \
+  --publish 8888:8888 \
+  --volume "${SHARED}":/home/jovyan/shared \
+  --workdir /home/jovyan/shared \
+  --name jupyter_lab \
   jupyter/datascience-notebook \
     start-notebook.sh \
     --NotebookApp.allow_origin_pat='.*.preview.app.github.dev'
