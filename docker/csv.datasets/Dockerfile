@@ -21,3 +21,10 @@ RUN curl -L -s -o a-z.combined.tsv 'https://ddc-datascience.s3.amazonaws.com/a-z
 CMD ["/bin/bash"]
 
 COPY Dockerfile /
+
+# Build image
+# docker image build --tag csv_datasets ./.
+
+# Run instance
+# docker run -it --rm csv_datasets /bin/bash
+
