@@ -1,7 +1,8 @@
 FROM ubuntu:22.04
 
-RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update && \
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
     apt-get install -y \
         csvkit \
         csvtool \
