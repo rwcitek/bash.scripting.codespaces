@@ -27,14 +27,12 @@ services:
 
 
 # Start up
-# docker compose up
+# docker compose -d up
 
-# Connect to 
-#
+# Connect to adminer
 # http://localhost:8080/?pgsql=db&username=postgres
 
 # Connect to container and use psql
-#
 # docker container exec -it postgresql-db-1 psql -U postgres
 
 
