@@ -1,6 +1,6 @@
 # Based on https://docs.streamlit.io/knowledge-base/tutorials/deploy/docker
 
-FROM python:3.9-slim
+FROM ubuntu:22.04
 
 WORKDIR /app
 
@@ -11,6 +11,7 @@ RUN apt-get update && \
       build-essential \
       curl \
       git \
+      python3-pip \
       software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
