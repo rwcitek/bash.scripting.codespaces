@@ -16,7 +16,8 @@ docker container run \
   --name jupyter_lab \
   jupyter/base-notebook \
     start-notebook.sh \
-    --NotebookApp.allow_origin_pat='.*.preview.app.github.dev'
+    --NotebookApp.allow_origin_pat='.*.preview.app.github.dev' \
+    --NotebookApp.token=''
 }
 ```
 
@@ -46,7 +47,8 @@ docker container run \
   --name jupyter_lab \
   jupyter/datascience-notebook \
     start-notebook.sh \
-    --NotebookApp.allow_origin_pat='.*.preview.app.github.dev'
+    --NotebookApp.allow_origin_pat='.*.preview.app.github.dev' \
+    --NotebookApp.token=''
 }
 ```
 
