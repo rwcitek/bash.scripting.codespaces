@@ -31,6 +31,5 @@ COPY Dockerfile /
 # docker image build --tag streamlit-example ./.
 
 # Run instance
-# docker run --rm --publish 127.0.0.1:8501:8501 streamlit-example
-
+# docker run --rm --detach --publish 127.0.0.1:8501:8501 --name streamlit streamlit-example ; echo -e "\n\nhttp://127.0.0.1:8501\n\n"
 
