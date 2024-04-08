@@ -3,7 +3,7 @@
 docker container run \
   --rm \
   --detach \
-  --volume ${PWD}:/data/ \
+  --volume "${PWD}":/data/ \
   --volume /var/run/docker.sock:/var/run/docker.sock \
   --workdir /data/ \
   --publish 127.0.0.1:8888:8888 \
