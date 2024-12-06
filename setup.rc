@@ -1,0 +1,10 @@
+#!/bin/bash
+
+git clone https://github.com/okfn/docker-ckan
+cd docker-ckan
+
+cp .env.example .env
+
+sudo docker-compose -f docker-compose.dev.yml up --build
+
+
