@@ -1,5 +1,14 @@
 #!/bin/bash
 
+docker container list | grep -q jupyter && { 
+  echo Jupyter already running
+  exit 0
+}
+docker container list -a | grep -q jupyter && {
+  echo Jupyter stopped; removing and restarting
+  docker container rm jupyter
+}
+
 docker container run \
   --rm \
   --detach \
