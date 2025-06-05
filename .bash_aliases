@@ -5,6 +5,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias gh.codespace.stop='gh codespace stop --codespace $CODESPACE_NAME'
+alias gh.codespace.delete='gh codespace delete --force --codespace $CODESPACE_NAME'
 alias grep='grep --color=auto'
 alias l='ls -CF'
 alias la='ls -A'
