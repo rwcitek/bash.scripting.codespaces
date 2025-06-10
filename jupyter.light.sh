@@ -22,6 +22,11 @@ docker container run \
 
 sleep 1
 { cat <<'eof'
+pip3 install --upgrade --break-system-packages \
+     matplotlib \
+     seaborn \
+     && pip cache purge \
+
 apt-get update
 
 apt-get install -y \
