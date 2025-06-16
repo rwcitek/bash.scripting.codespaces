@@ -24,6 +24,7 @@ sleep 1
 { cat <<'eof'
 pip3 install --upgrade --break-system-packages \
      matplotlib \
+     scikit-learn \
      seaborn \
      && pip cache purge \
 
@@ -34,7 +35,10 @@ apt-get install -y \
     ca-certificates \
     curl \
     gnupg \
-    lsb-release
+    less \
+    lsb-release \
+    tree \
+    ;
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg |
 gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
