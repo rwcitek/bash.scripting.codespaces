@@ -1,0 +1,13 @@
+{
+  "portsAttributes": {
+    "8888": {
+      "label": "Jupyter"
+    },
+    "1880": {
+      "label": "Node-RED"
+    },
+    "1883": {
+      "label": "mqtt"
+    }
+  }
+}
