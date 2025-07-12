@@ -55,3 +55,14 @@ apt-get install -y docker-ce-cli
 eof
 } | docker container exec -i jupyter /bin/bash
 
+
+# keep alive
+while : ; do
+  date
+  sleep 1
+  for i in {1..10} ; do
+    echo -n . 
+    sleep 1
+  done
+  echo
+done
