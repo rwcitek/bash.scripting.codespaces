@@ -14,6 +14,7 @@ and on GitHub's CodeSpaces.
 ```
 docker image pull rwcitek/mqtt-red
 docker image tag rwcitek/mqtt-red:latest mqtt-red
+docker image list -a | grep mqtt-red
 ```
 
 
@@ -25,7 +26,9 @@ docker container list -a
 
 ## Create the Docker container environment
 ```
-docker container run -d --name mqtt-red -p 127.0.0.1:1880:1880 mqtt-red \
+mqtt_host=""
+mqtt_host="127.0.0.1:"
+docker container run -d --name mqtt-red -p ${mqtt_host}1880:1880 -p ${mqtt_host}1883:1883 mqtt-red \
   sleep inf
 docker container list -a
 ```
@@ -73,6 +76,7 @@ docker container exec mqtt-red \
 ```
 docker container exec -d mqtt-red \
   node-red ; sleep 2
+docker container cp node-red.flows.aio.json mqtt-red:/root/.node-red/lib/flows
 docker container exec mqtt-red netstat -plnt ; sleep 2
 echo -e "\n\nNode-RED URL:    http://localhost:1880\n\n"
 ```

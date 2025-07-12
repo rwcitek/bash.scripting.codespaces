@@ -228,7 +228,7 @@
         "id": "224294cfd9acde9e",
         "type": "mqtt-broker",
         "name": "Eclipse",
-        "broker": "mqtt.eclipseprojects.io",
+        "broker": "127.0.0.1",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
