@@ -35,6 +35,7 @@ apt-get install -y \
     ca-certificates \
     curl \
     gnupg \
+    jq \
     less \
     lsb-release \
     tree \
