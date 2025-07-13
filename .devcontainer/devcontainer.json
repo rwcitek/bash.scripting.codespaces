@@ -1,4 +1,5 @@
 {
+  "postCreateCommand": "ln -snf ${containerWorkspaceFolder}/.bash_aliases ~/.bash_aliases",
   "portsAttributes": {
     "8888": {
       "label": "Jupyter"
