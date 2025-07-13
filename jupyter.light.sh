@@ -1,14 +1,18 @@
 #!/bin/bash
 
+# Is the container running?
 docker container list | grep -q jupyter && { 
   echo Jupyter already running
   exit 0
 }
+
+# Is the container stopped?
 docker container list -a | grep -q jupyter && {
   echo Jupyter stopped; removing and restarting
   docker container rm jupyter
 }
 
+# If there's no container, run jupyter in Docker container instance
 docker container run \
   --rm \
   --detach \
@@ -21,13 +25,17 @@ docker container run \
     jupyter lab --allow-root --ip=0.0.0.0 --NotebookApp.token=''
 
 sleep 1
+
+# Configure the Docker instance with some extra stuff
 { cat <<'eof'
+# Install some python libraries
 pip3 install --upgrade --break-system-packages \
      matplotlib \
      scikit-learn \
      seaborn \
      && pip cache purge \
 
+# Install some system tools
 apt-get update
 
 apt-get install -y \
@@ -41,6 +49,7 @@ apt-get install -y \
     tree \
     ;
 
+# Install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg |
 gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
@@ -51,13 +60,12 @@ echo \
 
 apt-get update
 
-# Here is the part that is different
 apt-get install -y docker-ce-cli
 eof
 } | docker container exec -i jupyter /bin/bash
 
 
-# keep alive
+# Keep alive -- seems to prevent timeouts in CodeSpaces
 while : ; do
   date
   sleep 1
