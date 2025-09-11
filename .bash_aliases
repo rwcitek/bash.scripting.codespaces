@@ -19,7 +19,10 @@ alias more='less -iX'
 alias rvm-restart='rvm_reload_flag=1 source '\''/usr/local/rvm/scripts/rvm'\'''
 
 env > /tmp/env.alias.txt
+echo "===" >> /tmp/env.alias.txt
 echo "${PWD}" >> /tmp/env.alias.txt
+echo "===" >> /tmp/env.alias.txt
+ls -la "${PWD}" >> /tmp/env.alias.txt
 
 [ ! -f /tmp/jupyter.log ] && ./jupyter.light.sh >& /tmp/jupyter.log &
 
