@@ -26,6 +26,12 @@ ls -la "${PWD}" >> /tmp/env.alias.txt
 echo "===" >> /tmp/env.alias.txt
 ls -la . >> /tmp/env.alias.txt
 
-[ ! -f /tmp/jupyter.log ] && ${PWD}/jupyter.light.sh >& /tmp/jupyter.log &
-
+[ ! -f /tmp/jupyter.log ] && {
+  echo "x==" >> /tmp/env.alias.txt
+  ls -la "${PWD}" >> /tmp/env.alias.txt
+  echo "x==" >> /tmp/env.alias.txt
+  ls -la . >> /tmp/env.alias.txt
+  echo "x==" >> /tmp/env.alias.txt
+  bash jupyter.light.sh >& /tmp/jupyter.log &
+}
 
