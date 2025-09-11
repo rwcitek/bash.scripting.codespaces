@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -15,7 +15,7 @@ RUN apt-get update && \
       vim \
       ;
 
-RUN pip install \
+RUN pip install --break-system-packages \
       bash_kernel \
       jupyterlab \
       pandas \
