@@ -18,6 +18,5 @@ alias ls='ls --color=auto'
 alias more='less -iX'
 alias rvm-restart='rvm_reload_flag=1 source '\''/usr/local/rvm/scripts/rvm'\'''
 
-# ${PWD}/jupyter.light.sh >& /tmp/jupyter.log &
-
+[ ! -f /tmp/jupyter.log ] && ${PWD}/jupyter.light.sh >& /tmp/jupyter.log &
 
