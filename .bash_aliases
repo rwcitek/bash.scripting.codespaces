@@ -21,8 +21,8 @@ alias rvm-restart='rvm_reload_flag=1 source '\''/usr/local/rvm/scripts/rvm'\'''
 
 [ -f /tmp/jupyter.log ] && {
   head /tmp/jupyter.log | grep -q ^latest: ||
-  jupyter.light.sh >& /tmp/jupyter.log &
+  ./jupyter.light.sh >& /tmp/jupyter.log &
 } ||
-  jupyter.light.sh >& /tmp/jupyter.log &
+  ./jupyter.light.sh >& /tmp/jupyter.log &
 
 
