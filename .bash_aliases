@@ -27,6 +27,9 @@ echo "===" >> /tmp/env.alias.txt
 ls -la . >> /tmp/env.alias.txt
 echo "=== tmp" >> /tmp/env.alias.txt
 ls -la /tmp/ >> /tmp/env.alias.txt
+echo "=== tmp" >> /tmp/env.alias.txt
+cat -n /tmp/jupyter.log >> /tmp/env.alias.txt
+
 
 [ -f /tmp/jupyter.log ] || echo "wtf-1" >> /tmp/env.alias.txt
 [ -f /tmp/jupyter.log ] && echo "wtf-2" >> /tmp/env.alias.txt
@@ -43,6 +46,6 @@ test -f /tmp/jupyter.log && echo "wtf-6" >> /tmp/env.alias.txt
   echo "x==" >> /tmp/env.alias.txt
   ls -la . >> /tmp/env.alias.txt
   echo "x==" >> /tmp/env.alias.txt
-  ./jupyter.light.sh >& /tmp/jupyter.log &
+#  ./jupyter.light.sh >& /tmp/jupyter.log &
 }
 
