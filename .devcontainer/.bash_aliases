@@ -21,6 +21,5 @@ alias rvm-restart='rvm_reload_flag=1 source '\''/usr/local/rvm/scripts/rvm'\'''
 env > /tmp/env.alias.txt
 echo "${PWD}" >> /tmp/env.alias.txt
 
-[ ! -f /tmp/jupyter.log ] && ${PWD}/jupyter.light.sh >& /tmp/jupyter.log &
-
+[ ! -f /tmp/jupyter.log ] && ./jupyter.light.sh >& /tmp/jupyter.log &
 
