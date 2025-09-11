@@ -31,16 +31,16 @@ echo "=== tmp" >> env.alias.txt
 ls -la /tmp/ >> env.alias.txt
 echo "=== tmp" >> env.alias.txt
 date >> env.alias.txt
-cat -n /tmp/jupyter.log >> env.alias.txt
+cat -n jupyter.log >> env.alias.txt
 
 
-[ -f /tmp/jupyter.log ] || echo "wtf-1" >> env.alias.txt
-[ -f /tmp/jupyter.log ] && echo "wtf-2" >> env.alias.txt
-[ ! -f /tmp/jupyter.log ] || echo "wtf-3" >> env.alias.txt
-[ ! -f /tmp/jupyter.log ] && echo "wtf-4" >> env.alias.txt
+[ -f jupyter.log ] || echo "wtf-1" >> env.alias.txt
+[ -f jupyter.log ] && echo "wtf-2" >> env.alias.txt
+[ ! -f jupyter.log ] || echo "wtf-3" >> env.alias.txt
+[ ! -f jupyter.log ] && echo "wtf-4" >> env.alias.txt
 
-test -f /tmp/jupyter.log || echo "wtf-5" >> env.alias.txt
-test -f /tmp/jupyter.log && echo "wtf-6" >> env.alias.txt
+test -f jupyter.log || echo "wtf-5" >> env.alias.txt
+test -f jupyter.log && echo "wtf-6" >> env.alias.txt
 
 
 {
@@ -49,6 +49,6 @@ test -f /tmp/jupyter.log && echo "wtf-6" >> env.alias.txt
   echo "x==" >> env.alias.txt
   ls -la . >> env.alias.txt
   echo "x==" >> env.alias.txt
-  ./jupyter.light.sh >& jupyter.log &
+  ${OLDPWD}/jupyter.light.sh >& jupyter.log &
 }
 
