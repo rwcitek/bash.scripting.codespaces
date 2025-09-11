@@ -19,36 +19,10 @@ alias more='less -iX'
 alias rvm-restart='rvm_reload_flag=1 source '\''/usr/local/rvm/scripts/rvm'\'''
 
 
-cd $( mktemp -d /tmp/zfoo.$(date +%s.%N).XXXX )
-env > env.alias.txt
-echo "===" >> env.alias.txt
-echo "${PWD}" >> env.alias.txt
-echo "===" >> env.alias.txt
-ls -la "${PWD}" >> env.alias.txt
-echo "===" >> env.alias.txt
-ls -la . >> env.alias.txt
-echo "=== tmp" >> env.alias.txt
-ls -la /tmp/ >> env.alias.txt
-echo "=== tmp" >> env.alias.txt
-date >> env.alias.txt
-cat -n jupyter.log >> env.alias.txt
+[ -f /tmp/jupyter.log ] && {
+  head /tmp/jupyter.log | grep -q ^latest: ||
+  jupyter.light.sh >& /tmp/jupyter.log &
+} ||
+  jupyter.light.sh >& /tmp/jupyter.log &
 
-
-[ -f jupyter.log ] || echo "wtf-1" >> env.alias.txt
-[ -f jupyter.log ] && echo "wtf-2" >> env.alias.txt
-[ ! -f jupyter.log ] || echo "wtf-3" >> env.alias.txt
-[ ! -f jupyter.log ] && echo "wtf-4" >> env.alias.txt
-
-test -f jupyter.log || echo "wtf-5" >> env.alias.txt
-test -f jupyter.log && echo "wtf-6" >> env.alias.txt
-
-
-{
-  echo "x==" >> env.alias.txt
-  ls -la "${PWD}" >> env.alias.txt
-  echo "x==" >> env.alias.txt
-  ls -la . >> env.alias.txt
-  echo "x==" >> env.alias.txt
-  ${OLDPWD}/jupyter.light.sh >& jupyter.log &
-}
 
