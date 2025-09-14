@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# pull the image
+docker image pull rwcitek/jupyter.light
+
 # Is the container running?
 docker container list | grep -q jupyter && { 
   echo Jupyter already running

@@ -17,7 +17,7 @@ alias ll='ls -alF'
 alias ls='ls --color=auto'
 alias more='less -iX'
 alias rvm-restart='rvm_reload_flag=1 source '\''/usr/local/rvm/scripts/rvm'\'''
-
+alias screen='screen -e$'\''\026'\''v'
 
 [ -f /tmp/jupyter.log ] && {
   head /tmp/jupyter.log | grep -q ^latest: ||
