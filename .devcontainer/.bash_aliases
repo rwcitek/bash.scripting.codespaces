@@ -26,8 +26,8 @@ alias screen='screen -e$'\''\026'\''v'
   ./jupyter.light.sh >& /tmp/jupyter.log &
 
 
-which screen >& /devn/null || {
-  sudo apt-get update && sudo apt-get install -y screen
-}
+which screen >& /dev/null || {
+  sudo apt-get update && sudo apt-get install -y screen 
+} >& /tmp/screen.install.log &
 
 
