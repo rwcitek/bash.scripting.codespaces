@@ -25,10 +25,10 @@ alias screen='screen -e$'\''\026'\''v'
 # } ||
 #   ./jupyter.light.sh >& /tmp/jupyter.log &
 
-
 which screen >& /dev/null || {
   sudo apt-get update && sudo apt-get install -y screen 
   screen -dmS jupyter
+  screen -S jupyter -X stuff "cd /workspaces/bash.scripting.codespaces ; ./jupyter.light.sh \n"
   screen -ls
   echo == done
 } >& /tmp/screen.install.log &
