@@ -19,15 +19,18 @@ alias more='less -iX'
 alias rvm-restart='rvm_reload_flag=1 source '\''/usr/local/rvm/scripts/rvm'\'''
 alias screen='screen -e$'\''\026'\''v'
 
-[ -f /tmp/jupyter.log ] && {
-  head /tmp/jupyter.log | grep -q ^latest: ||
-  ./jupyter.light.sh >& /tmp/jupyter.log &
-} ||
-  ./jupyter.light.sh >& /tmp/jupyter.log &
+# [ -f /tmp/jupyter.log ] && {
+#   head /tmp/jupyter.log | grep -q ^latest: ||
+#   ./jupyter.light.sh >& /tmp/jupyter.log &
+# } ||
+#   ./jupyter.light.sh >& /tmp/jupyter.log &
 
 
 which screen >& /dev/null || {
   sudo apt-get update && sudo apt-get install -y screen 
+  screen -dmS jupyter
+  screen -ls
+  echo == done
 } >& /tmp/screen.install.log &
 
 
