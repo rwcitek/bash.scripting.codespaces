@@ -5,6 +5,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias cls=clear
 alias dir='ls -la'
 alias docker.container.stop.jupyter='docker container stop jupyter'
+alias docker.container.list.all='docker container list -a'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias gh.codespace.stop='gh codespace stop --codespace $CODESPACE_NAME'
