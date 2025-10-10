@@ -1,4 +1,12 @@
 export EDITOR=vim
+export HISTCONTROL=ignoredups:ignorespace;
+export HISTFILESIZE=50000;
+export HISTSIZE=50000;
+export HISTTIMEFORMAT='%t%F %T%t';
+export PAGER='less -iX ';
+export IGNOREEOF=20;
+export PS1='\u@\h: \w\n\$ ' ;
+[ -d ~/bin ] && export PATH=~/bin:${PATH}
 
 
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -29,5 +37,7 @@ which screen >& /dev/null || {
   screen -ls
   echo == done
 } >& /tmp/screen.install.log &
+
+
 
 
