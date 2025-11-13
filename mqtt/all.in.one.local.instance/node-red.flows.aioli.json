@@ -2,7 +2,7 @@
     {
         "id": "e1163db7c4c22860",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "MQTT Flow",
         "disabled": false,
         "info": "",
         "env": []
