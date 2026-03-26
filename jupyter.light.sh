@@ -50,6 +50,8 @@ apt-get install -y \
     less \
     lsb-release \
     tree \
+    unzip \
+    zip \
     ;
 
 # Install Docker
