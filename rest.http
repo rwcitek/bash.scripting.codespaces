@@ -1,0 +1,6 @@
+GET https://api.weather.gov/stations
+
+
+GET https://api.weather.gov/glossary
+
+
