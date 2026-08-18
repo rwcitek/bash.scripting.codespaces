@@ -1,7 +1,7 @@
 # Most-in-one Node-RED, subscriber, publisher container
 
 This version is similar to the original version,
-but differs in that it uses the public broker at \[[mqtt.eclipseprojects.io]( https://mqtt.eclipseprojects.io/ )\].
+but differs in that it uses the public broker at \[[broker.hivemq.com]( https://broker.hivemq.com )\].
 
 For more info on [MQTT]( https://en.wikipedia.org/wiki/MQTT )
 
@@ -51,7 +51,7 @@ Open the link in a browser.
 ```
 docker container exec mqtt-red \
   mosquitto_sub \
-    --host mqtt.eclipseprojects.io \
+    --host broker.hivemq.com \
     --port 1883 \
     --topic feeds/test
 ```
@@ -61,7 +61,7 @@ docker container exec mqtt-red \
 ```bash
 docker container exec mqtt-red \
   mosquitto_pub \
-    --host mqtt.eclipseprojects.io \
+    --host broker.hivemq.com \
     --port 1883 \
     --topic feeds/test \
     --message "Hello World"

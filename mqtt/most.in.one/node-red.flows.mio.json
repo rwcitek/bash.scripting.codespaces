@@ -228,8 +228,8 @@
     {
         "id": "f7fb738d5aee12fe",
         "type": "mqtt-broker",
-        "name": "MQTT at Eclipse",
-        "broker": "mqtt.eclipseprojects.io",
+        "name": "MQTT at HiveMQ",
+        "broker": "broker.hivemq.com",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
