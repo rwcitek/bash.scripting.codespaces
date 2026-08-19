@@ -1,0 +1,8 @@
+
+docker container exec --privileged nodeA ip addr add 10.1.1.11/24 dev eth0
+docker container exec -it nodeA service nginx start
+docker container exec -it nodeA curl -I http://localhost
+
+# docker container exec -it nodeA /bin/bash
+# docker container exec -it nodeB /bin/bash
+
