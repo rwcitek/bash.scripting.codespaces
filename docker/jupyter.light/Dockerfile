@@ -8,6 +8,7 @@ RUN apt-get update && \
       curl \
       elinks \
       file \
+      git \
       iputils-ping \
       jq \
       python3-pip \
