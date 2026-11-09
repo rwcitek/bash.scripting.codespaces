@@ -16,7 +16,7 @@ RUN apt-get update && \
       vim \
       ;
 
-RUN pip install \
+RUN pip install --break-system-packages \
       bash_kernel \
       duckdb \
       jupyterlab \
